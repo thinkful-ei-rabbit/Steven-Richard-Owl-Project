@@ -120,11 +120,11 @@ function App(prop) {
   /* console.log(customLis)  */
   console.log(customLis)
   return (
-    <main className='App'>
-      <div className="App-list">
+    <main className='main'>
+      <div className="left">
       {customLis}
       </div>
-      <div className="App-list">
+      <div className="right">
       {customLis2}
       </div>
     </main>
