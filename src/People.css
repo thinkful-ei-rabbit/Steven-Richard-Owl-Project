@@ -1,0 +1,16 @@
+.person-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex: 1;
+    border-style: solid;
+    border-width: .25rem;
+}
+
+.person-name {
+    flex: 0.25;
+}
+
+.person-avatar {
+    flex: 0.25;
+}

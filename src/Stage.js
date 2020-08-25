@@ -1,11 +1,12 @@
 import React from 'react';
+import './Stage.css';
 
 function Stage(props) {
   let stagey = ` ${props.onStage}`
   return (
-    <main className='App'>
-      <div className="App-list">
-      <img src={props.avatar} alt='Logo'/>
+    <main className='stage-box'>
+      <div className='stage-person'>
+      <img src={props.avatar} alt='stage-image'/>
       {props.name}
       {stagey}
       </div>
