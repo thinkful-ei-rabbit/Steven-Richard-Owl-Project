@@ -1,56 +1,128 @@
 import React from 'react';
 import logo from './logo.svg';
+import People from './People'
 import './App.css';
-import participants from './participants';
 
-// function App(props) {
-//   const people = props.participants.map((participant) => {
-//     const alive = props.participants.filter((participant) => {
-//       let active = [];
-//       let inactive = [];
-//       if(participant.inSession) {
-//         active.push(participant);
-//     } else {
-//         inactive.push(participant);
-//     };
-//     return (
-//       <div className='box'>
-//         <span><p>{participant.name}</p></span>
-//         <span><p>{participant.name}</p></span>
-//         <span><p>{participant.name} is on Stage</p></span>
-//       </div>
-//   )
-//   })
-//   return ( <div>{people}</div> );
-// };
 
-function App(props) {
-    let people = props.participants.filter((participant) => {
-      let active = [];
-      let inactive = [];
+/* function App(props) {
+  const alive = props.participants.forEach((participant) => {
+     if (participant.inSession === true) {
+       return participant;
+     }
+    });
+    return (
+      <div className='box'>
+        <span><p>{alive}</p></span>
+{        <span><p>{participant.name}</p></span>
+        <span><p>{participant.name} is on Stage</p></span>}
+      </div>
+  )
+} */
+
+
+/* function App(props) {
+    let people = props.participants.forEach((participant) => {
+      let active = '';
+      let inactive = '';
       if(participant.inSession) {
-        let personActive = (
-          <div className='box'>
-            <span><p>{participant.name}</p></span>
-            <span><p>{participant.name}</p></span>
-            <span><p>{participant.name} is in Session</p></span>
-          </div>
-        )
-        active.push(personActive);
+        active += 
+          `<div className='box'>
+            <span><p>${participant.avatar}</p></span>
+            <span><p>${participant.name}</p></span>
+            <span><p>${participant.name} is in Session</p></span>
+          </div>`
+
+        console.log(active)
     } else {
-      let personInactive = (
+      inactive += (
         <div className='box'>
-          <span><p>{participant.name}</p></span>
+          <span><p>{participant.avatar}</p></span>
           <span><p>{participant.name}</p></span>
           <span><p>{participant.name} is outta Session</p></span>
         </div>
       )
-        inactive.push(personInactive);
     };
-    return(active+inactive)
+
+    return
   });
-  console.log(people);
   return ( <div>{people}</div> );
+}; */
+
+
+/* function App(props) {
+  let people2 = 
+  let people = props.participants.forEach((participant) => {
+    let active = [];
+    let inactive = [];
+    if (participant.inSession) {
+      let personActive = `
+        <div className='box'>
+          <span><p>${participant.name}</p></span>
+          <span><p>${participant.name}</p></span>
+          <span><p>${participant.name} is in Session</p></span>
+        </div>
+      `
+      active.push(personActive);
+  } else if (!participant.inSession) {
+    let personInactive = `
+      <div className='box'>
+        <span><p>${participant.name}</p></span>
+        <span><p>${participant.name}</p></span>
+        <span><p>${participant.name} is outta Session</p></span>
+      </div>
+    `
+      inactive.push(personInactive);
+  };
+  let conCat = active.concat(inactive)
+  let dotJoin = conCat.join();
+  console.log(dotJoin)
+  return dotJoin;
+});
+console.log(people);
+return ( <div>{people}</div> );
+}; */
+/* 
+function App(prop) {
+  let success = [];
+  let notSuccess = [];
+    for (let i = 0; i < prop.participants.length; i++) {
+      if (prop.participants[i].inSession === true) {
+        success.push(prop.participants[i])
+      } else {
+        notSuccess.push(prop.participants[i]);
+      }
+    }
+    
+   console.log(customLis)  
+  console.log(success)
+  console.log(notSuccess)
+  
+  return (
+    <main className='App'>
+    <header className="App-header">
+      <h1>Trelloyes!</h1>
+    </header>
+    <div className="App-list">
+  <h1>{success[0].name}</h1>
+    </div>
+  </main>
+  )
+}; */
+
+function App(prop) {
+  const customLis = prop.participants.map(function({id, avatar, name, inSession}) {
+    return <People key={id} name={name} avatar={avatar} inSession={inSession} />
+  });
+  /* console.log(customLis)  */
+  console.log(customLis)
+  return (
+    <main className='App'>
+      <div className="App-list">
+      {customLis}
+      </div>
+    </main>
+  )
 };
+
 
 export default App;
