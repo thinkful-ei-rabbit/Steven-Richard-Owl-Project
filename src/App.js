@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import People from './People'
+import Stage from './Stage'
 import './App.css';
 
 
@@ -113,12 +114,18 @@ function App(prop) {
   const customLis = prop.participants.map(function({id, avatar, name, inSession}) {
     return <People key={id} name={name} avatar={avatar} inSession={inSession} />
   });
+  const customLis2 = prop.participants.map(function({id, avatar, name, onStage}) {
+    return <Stage key={id} name={name} avatar={avatar} onStage={onStage} />
+  });
   /* console.log(customLis)  */
   console.log(customLis)
   return (
     <main className='App'>
       <div className="App-list">
       {customLis}
+      </div>
+      <div className="App-list">
+      {customLis2}
       </div>
     </main>
   )
